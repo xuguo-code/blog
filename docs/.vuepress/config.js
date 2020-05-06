@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/blog/',
   title: 'xu blog',
   description: 'hello word',
   themeConfig: {
