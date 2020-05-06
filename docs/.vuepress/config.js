@@ -1,6 +1,6 @@
 module.exports = {
   base: '/blog/',
-  dest: '/dist',
+  dest: 'dist',
   title: 'xu blog',
   description: 'hello word',
   themeConfig: {
