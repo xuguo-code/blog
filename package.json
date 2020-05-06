@@ -14,7 +14,12 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
-  "keywords": ["blog", "博客", "前端", "JavaScript"],
+  "keywords": [
+    "blog",
+    "博客",
+    "前端",
+    "JavaScript"
+  ],
   "author": "xuguo",
   "license": "ISC"
 }
