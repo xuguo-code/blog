@@ -1,8 +1,8 @@
 module.exports = {
   base: '/blog/',
   dest: 'dist',
-  title: 'xu blog',
-  description: 'hello word',
+  title: '水果派的手记',
+  description: 'hello fruit',
   themeConfig: {
     editLinks: false,
     sidebar: [

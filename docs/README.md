@@ -1,6 +1,6 @@
 ---
 home: true
-# heroImage: 
+heroImage: /logo.png
 actionText: 开始 →
 actionLink: /vue/
 ---
