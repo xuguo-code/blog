@@ -376,7 +376,7 @@ function trigger(target, key) {
   if(keyToDeps = targetMap.get(target)) {
     effects = keyToDeps.get(key)
   }
-	//	依次执行
+	// 依次执行
   effects && effects.forEach(e => e())
 }
 ```
