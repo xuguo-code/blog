@@ -19,7 +19,7 @@ module.exports = {
         collapsable: true,
         children: [
           ['Vue3/', 'vue3现状'],
-          ['vue3/reactivity', 'vue3的响应式']
+          ['Vue3/reactivity', 'vue3的响应式']
         ]
       },
       {
