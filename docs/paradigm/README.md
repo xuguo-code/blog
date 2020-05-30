@@ -1,0 +1,4 @@
+## JavaScript编程
+
+JavaScript作为一门动态性非常高的语言，在整个前端发展的浪潮中也不断的被推向各种编程模式，ES6推出class、extend等关键字也让JavaScript面向对象变得更像java，在结合TypeScript下更是拥有强大的面向对象编程能力，这点在angular中体现的淋漓尽致；而在现今天，React Hooks的推出以及Vue3的composition API的即将推出，无不在强调组合大于继承，浪潮似乎将要把JavaScript推向函数式编程的方向；作为一门函数是一等公民的语言，回归到函数式的编程方式也许会更适合现在的前端基于视图层的编程。
+

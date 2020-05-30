@@ -27,9 +27,18 @@ module.exports = {
         collapsable: true,
         children: [
           ['async/', '异步编程模型'],
-          ['async/promise', 'promiseA+的规范及实现']
+          ['async/promise', 'promiseA+的规范及实现'],
+          ['async/eventloop', '事件循环'],
         ]
-      }
+      },
+      {
+        title: '编程思想',
+        collapsable: true,
+        children: [
+          ['paradigm/', '编程范式'],
+          ['paradigm/functional', '函数式编程']
+        ]
+      },
     ]
   }
 }
