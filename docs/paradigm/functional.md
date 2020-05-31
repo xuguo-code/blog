@@ -199,3 +199,83 @@ function compose(...funcs) {
 
 #### 函数curry和偏应用
 
+函数curry和偏应用都是和函数参数相关的概念，所以在真正聊这两个概念前需要了解几个术语：
+
+* 一元函数(unary)
+
+> 只接收一个参数的函数称为一元函数：`x => x + 1`
+
+* 二元函数(binary)
+
+> 只接收两个参数的函数称为二元函数：`(x, y) => x + y`
+
+* 变参函数(variadic)
+
+> 接收可变数量参数的函数称为变参函数
+
+**函数柯里化是将一个多参函数转化成一个嵌套的一元函数的过程。**
+
+接下来将通过一个`add`函数来实现一个柯里化函数：
+
+```js
+// 一个计算总和的add函数
+let add = (x, y, z) => x + y + z
+// 常规调用
+add(1, 2, 3)
+
+// 柯里化的调用
+// addCurried(1, 2)(3) / addCurried(1)(2, 3)
+
+const curry = fn => {
+  return function curriedFn(...args) {
+    if(args.length < fn.length) {
+			return function() {
+        return curriedFn.apply(null, 
+								args.concat(Array.from(arguments)))
+      }
+    }
+    return fn.apply(null, args)
+  }
+}
+let addCurried = curry(add)
+addCurried(1, 2)(3)
+```
+
+通过`args.length < fn.length`来判断是否到达了参数长度，来决定是调用函数还是递归返回继续接收参数的函数，这样就实现了函数的柯里化。通过函数柯里化我们很容易的可以扩展上文的判断类型的函数：
+
+```js
+let isTypeCurried = curry(isType)
+let isNumber = isTypeCurried('number')
+let isString = isTypeCurried('string')
+```
+
+这样的扩展方式比起高阶函数的方式，更加抽象了，完全不必为每个不同类型的扩展都去书写一个高阶函数。
+
+**参数流向**
+
+当我们在实现函数柯里化的时候，会发现传入的参数永远都是按照从左至右的顺序来传递的，但是当我们遇到一个这样的需求：
+
+```js
+setTimeout(() => console.log('task 1'), 10)
+setTimeout(() => console.log('task 2'), 10)
+```
+
+我们想要将两个定时器中相同的参数`10ms`提取出来，函数柯里化似乎已经做不到了，这两个函数的共同点是在最右边的参数，我们可能需要先将右侧的参数固化，这样的参数流向和柯里化不同，那么为了解决这个问题就需要用到偏应用了：**偏应用允许我们部分的应用函数参数**
+
+```js
+function partial(fn, ...partialArgs) {
+  // 捕获预处理参数
+  return (...args) => {
+    let arg = 0
+    let finalArgs = [...partialArgs]
+    for(let i = 0; i < partialArgs.length && i < args.length; i ++) {
+			if(partialArgs[i] === undefined) {
+        finalArgs[i] = args[arg++]
+      }
+    }
+    return fn.apply(null, finalArgs)
+  }
+}
+```
+
+这样就达到捕获预处理参数的作用，我们可以仅关注函数参数的某一个部分。
