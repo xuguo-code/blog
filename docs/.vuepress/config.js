@@ -19,7 +19,9 @@ module.exports = {
         collapsable: true,
         children: [
           ['Vue3/', 'vue3现状'],
-          ['Vue3/reactivity', 'vue3的响应式']
+          ['Vue3/reactivity', 'vue3的响应式'],
+          ['Vue3/runtime-part1', 'vue3的runtime包'],
+          ['Vue3/runtime-part2', 'vue3的渲染器创建流程解析'],
         ]
       },
       {
