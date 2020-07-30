@@ -32,19 +32,19 @@ foo()
 
 面对这样一段待执行的代码，浏览器首先需要去执行它，我们忽略掉一系列的变量声明、赋值、提升等等内容，直接到达最后一行`foo()`的调用，我们首先会将`foo`函数推入执行函数栈中，类似下图：
 
->  (stack)[/blog/stack.jpg]
+>  ![stack](/blog/stack.jpg)
 >
 > 执行遇到`console.log`也会将其推入执行栈中，如图：
 >
-> (stack)[/blog/console-in.jpg]
+> ![stack](/blog/console-in.jpg)
 >
 > `console.log`执行完毕后，会将其从栈中推出：
 >
-> (stack)[/blog/console-out.jpg]
+> ![stack](/blog/console-out.jpg)
 >
 > 遇到`bar()`也是同样的操作：
 >
-> (stack)[/blog/bar-in.jpg]
+> ![stack](/blog/bar-in.jpg)
 >
 > 直到`foo`函数执行完出栈
 
@@ -66,7 +66,7 @@ foo()
 
 我们将`foo`函数中的`console`用`setTimeout`包裹起来，这样就形成了一个异步的任务；当执行到foo函数内部的时候会调用栈会形成什么样的结构呢？
 
-> (Async-loop)[/blog/async-loop.jpg]
+> ![Async-loop](/blog/async-loop.jpg)
 >
 > 如上图所示在遇到异步任务时，会将任务交由浏览器的Web API层处理，这与JavaScript执行所在的进程并非同一个，这样JavaScript便可以直接执行后续任务，不用关心异步任务的调度，浏览器的API层会在异步任务到期的时候将任务回调推入异步任务队列中，而JavaScript的主线程实现了类似MDN描述的事件循环，在当前执行栈清空时会去向异步任务队列取新的任务执行，这样便构建了一个简单的异步任务模型。
 
