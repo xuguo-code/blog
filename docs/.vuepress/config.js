@@ -24,7 +24,7 @@ module.exports = {
             title: 'runtime包源码解析',
             collapsable: true,
             children: [
-              ['Vue3/runtime', 'vue3的runtime包'],
+              ['Vue3/runtime/', 'vue3的runtime包'],
               ['Vue3/runtime/runtime-part2', 'vue3的createApp接口'],
             ]
           }
