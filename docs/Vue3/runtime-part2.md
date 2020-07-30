@@ -404,40 +404,12 @@ export const createApp = ((...args) => {
   >     anchor: HostNode | null,
   >     isSVG: boolean
   >   ): HostElement[]
-  > }HostNode, HostElement>[],
-  >     parentComponent?: ComponentInternalInstance | null,
-  >     parentSuspense?: SuspenseBoundary | null,
-  >     unmountChildren?: UnmountChildrenFn
-  >   ): void
-  >   forcePatchProp?(el: HostElement, key: string): boolean
-  >   insert(el: HostNode, parent: HostElement, anchor?: HostNode | null): void
-  >   remove(el: HostNode): void
-  >   createElement(
-  >     type: string,
-  >     isSVG?: boolean,
-  >     isCustomizedBuiltIn?: string
-  >   ): HostElement
-  >   createText(text: string): HostNode
-  >   createComment(text: string): HostNode
-  >   setText(node: HostNode, text: string): void
-  >   setElementText(node: HostElement, text: string): void
-  >   parentNode(node: HostNode): HostElement | null
-  >   nextSibling(node: HostNode): HostNode | null
-  >   querySelector?(selector: string): HostElement | null
-  >   setScopeId?(el: HostElement, id: string): void
-  >   cloneNode?(node: HostNode): HostNode
-  >   insertStaticContent?(
-  >     content: string,
-  >     parent: HostElement,
-  >     anchor: HostNode | null,
-  >     isSVG: boolean
-  >   ): HostElement[]
   > }
   > ```
-  >
+  > 
   > 整体包含这么多个相关的方法，由此可见写一个新的平台相关的接口接入`Vue3`并不是一件复杂的事情，这会给以后的跨平台开发类库的开发者接入`Vue3`的体验带来前所未有的提升；我们也期待像`uni-app`、`weex`等类库在`Vue3`能将开发体验提升到什么样的层次。
 
 ##### 总结
 
-整体上来说 `createApp`的全流程并不算复杂，其中也有很多细节并为提到，感兴趣的小伙伴可以深入研读。
+整体上来说 `createApp`的全流程并不算复杂，其中也有很多细节并未提到，感兴趣的小伙伴可以深入研读。再次回到本篇的目的，经过本篇的解析相信应该是都已有答案了。
 
