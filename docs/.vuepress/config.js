@@ -27,6 +27,7 @@ module.exports = {
               ['Vue3/runtime/', 'vue3的runtime包'],
               ['Vue3/runtime/runtime-part2', 'vue3的createApp接口'],
               ['Vue3/runtime/runtime-part3', 'vue3的mount流程'],
+              ['Vue3/runtime/runtime-part4', 'vue3的update流程'],
             ]
           }
         ]
