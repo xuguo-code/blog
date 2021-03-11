@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异步编程 | 水果派手记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="hello fruit">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.b6bfb1ac.css" as="style"><link rel="preload" href="/blog/assets/js/app.50e037a5.js" as="script"><link rel="preload" href="/blog/assets/js/2.efe9cd2c.js" as="script"><link rel="preload" href="/blog/assets/js/8.1dca84d8.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.18a8a17e.js"><link rel="prefetch" href="/blog/assets/js/11.cb06ee82.js"><link rel="prefetch" href="/blog/assets/js/12.0b437d91.js"><link rel="prefetch" href="/blog/assets/js/13.26f3cd12.js"><link rel="prefetch" href="/blog/assets/js/14.a6643ca2.js"><link rel="prefetch" href="/blog/assets/js/15.62c291bc.js"><link rel="prefetch" href="/blog/assets/js/16.e9a5413a.js"><link rel="prefetch" href="/blog/assets/js/17.5c362973.js"><link rel="prefetch" href="/blog/assets/js/3.ff26ccfb.js"><link rel="prefetch" href="/blog/assets/js/4.e05c873c.js"><link rel="prefetch" href="/blog/assets/js/5.f3e6ed41.js"><link rel="prefetch" href="/blog/assets/js/6.498ab014.js"><link rel="prefetch" href="/blog/assets/js/7.3f5168c2.js"><link rel="prefetch" href="/blog/assets/js/9.4873dd77.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b6bfb1ac.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">水果派手记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>异步编程</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/async/" aria-current="page" class="active sidebar-link">异步编程模型</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/async/#异步编程" class="sidebar-link">异步编程</a></li></ul></li><li><a href="/blog/async/promise.html" class="sidebar-link">promiseA+的规范及实现</a></li><li><a href="/blog/async/eventloop.html" class="sidebar-link">事件循环</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>编程思想</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="异步编程"><a href="#异步编程" class="header-anchor">#</a> 异步编程</h2> <p>众所周知JavaScript是单线程的语言，也就意味着在JavaScript顺序执行的时候如果出现了假死代码（无限循环或者某些长耗时的任务）是会将后续代码阻塞的，JavaScript便提供了同步和异步两种代码执行方式；</p> <ul><li><p>如何理解同步与异步</p> <blockquote><p>同步可以理解为排队，只有前面的人完成了，队伍才会往前移动</p> <p>异步可以理解为一个场景：厨师在做菜，突然发现没有酱油了，便让辅厨出去买，自己进而去做其他不需要酱油的菜品，等到辅厨将酱油买回来后，再继续去做之前没法完成的菜品</p></blockquote> <p>这两个例子很直观的展现了同步与异步的区别，显而易见的是异步的执行模型是不会阻塞的，厨师可以转而做其他事情并不影响到主流程。其实在浏览器中单线程的概念是针对JavaScript执行引擎的，浏览器本身的实现是多线程的，所以在浏览器中可以通过Event Loop来实现JavaScript执行线程的异步，在JavaScript遇到异步任务时可以将任务交出给浏览器调度，浏览器在合适的时机将异步任务的结果返还给JavaScript执行线程来继续执行，这样就实现了不阻塞JavaScript主线程的效果。</p></li> <li><p>JavaScript异步编程模型</p> <ol><li>回调函数</li> <li>promise</li> <li>asnyc/await</li></ol></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/vue/reactive.html" class="prev">
+        响应式
+      </a></span> <span class="next"><a href="/blog/async/promise.html">
+        promiseA+的规范及实现
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.50e037a5.js" defer></script><script src="/blog/assets/js/2.efe9cd2c.js" defer></script><script src="/blog/assets/js/8.1dca84d8.js" defer></script>
+  </body>
+</html>
